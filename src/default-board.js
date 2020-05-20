@@ -7,19 +7,19 @@ export default {
       name: 'todo',
       tasks: [
         {
-          description: '',
+          description: 'I can finish this work and divide the work to the group of people',
           name: 'first task',
           id: uuid(),
           userAssigned: null
         },
         {
-          description: '',
+          description: 'Second task to come now',
           name: 'second task',
           id: uuid(),
           userAssigned: null
         },
         {
-          description: '',
+          description: 'Editing and adding',
           name: 'and thrid',
           id: uuid(),
           userAssigned: null
@@ -30,7 +30,7 @@ export default {
       name: 'in-progress',
       tasks: [
         {
-          description: '',
+          description: 'Art work',
           name: 'first task',
           id: uuid(),
           userAssigned: null
