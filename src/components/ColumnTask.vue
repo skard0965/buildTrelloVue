@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import movingTasksAndColumnsMixin from '@/mixins/movingTasksAndColumnsMixin'
+
 export default {
 
   props: {
@@ -23,21 +25,10 @@ export default {
     taskIndex: {
       type: Number,
       required: true
-    },
-    columnIndex: {
-      type: Number,
-      required: true
-    },
-    column: {
-      type: Object,
-      required: true
-    },
-    board: {
-      type: Object,
-      required: true      
     }
   },
-  methods:{
+  mixins: [movingTasksAndColumnsMixin],
+  methods: {
     pickupTask (e, taskIndex, fromColumnIndex) {
       e.dataTransfer.effectAllowed = 'move'
       e.dataTransfer.dataTransfer = 'move'
@@ -48,15 +39,7 @@ export default {
     },
     goToTask (task) {
       this.$router.push({ name: 'task', params: { id: task.id } })
-    },
-    moveTaskOrColumn (e, toTasks, toColumnIndex, toTaskIndex) {
-      const type = e.dataTransfer.getData('type')
-      if (type === 'task') {
-        this.moveTask(e, toTasks, toTaskIndex !== undefined ? toTaskIndex : toTasks.length)
-      } else {
-        this.moveColumn(e, toColumnIndex)
-      }
-    },
+    }
   }
 
 }
